@@ -1,0 +1,52 @@
+body {
+    margin-top: 40px;
+}
+
+.ligne {
+    display: flex;
+    justify-content: center;
+}
+
+.cartes {
+    height: 125px;
+    width: 125px;
+    background-color: #D7DBDD ;
+    margin: 3px;
+    cursor: pointer;
+}
+
+.cartes:hover {
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+/* COULEUR DES CARTES */
+
+.red {
+    background-color: red;
+}
+.yellow {
+    background-color: yellow;
+}
+.orange {
+    background-color: orange;
+}
+.pink {
+    background-color: pink;
+}
+.purple {
+    background-color: purple;
+}
+.blue {
+    background-color: blue;
+}
+.cyan {
+    background-color: cyan;
+}
+.black{
+    background-color: black;
+}
+
+.colorHidden {
+    background-color: #D7DBDD;
+}
