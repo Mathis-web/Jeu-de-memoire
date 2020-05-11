@@ -21,6 +21,11 @@ function retournerCartes(e) {
         deuxiemeCarte = e.currentTarget;
         console.log(deuxiemeCarte.getAttribute('data-color'));
     
-       
+       if (premiereCarte.getAttribute('data-color') !== deuxiemeCarte.getAttribute('data-color')) {
+           setTimeout(() => {
+               premiereCarte.classList.add('colorHidden');
+               deuxiemeCarte.classList.add('colorHidden');
+           }, 1000);
+       }
     }
 }
