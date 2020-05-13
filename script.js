@@ -1,10 +1,11 @@
 let cartes = document.querySelectorAll('.cartes');
 let cartesRetournees = false;
 let premiereCarte, deuxiemeCarte;
+let carteTrouvees = 0;
 
-// révèle la couleur du caré
+// révèle la couleur de la carte
 for (const carte of cartes) {
-    carte.addEventListener('click', retournerCartes)
+    carte.addEventListener('click', retournerCartes);
 }
 
 function retournerCartes(e) {
@@ -21,11 +22,26 @@ function retournerCartes(e) {
         deuxiemeCarte = e.currentTarget;
         console.log(deuxiemeCarte.getAttribute('data-color'));
     
-       if (premiereCarte.getAttribute('data-color') !== deuxiemeCarte.getAttribute('data-color')) {
-           setTimeout(() => {
+       if (premiereCarte.getAttribute('data-color') !== deuxiemeCarte.getAttribute('data-color')) { // alors on vérifie si c'est la même couleur
+            interdictionClique = true;
+            setTimeout(() => {
                premiereCarte.classList.add('colorHidden');
                deuxiemeCarte.classList.add('colorHidden');
-           }, 1000);
+           }, 750);
        }
+       else {
+        premiereCarte.removeEventListener('click', retournerCartes);
+        deuxiemeCarte.removeEventListener('click', retournerCartes);
+
+        premiereCarte.classList.add('active');
+        deuxiemeCarte.classList.add('active');
+        carteTrouvees++;
+        console.log(carteTrouvees);
+
+        if (carteTrouvees == 8) { 
+            alert('Vous avez gagné');
+            console.log(carteTrouvees);
+            }
+        }
     }
 }
