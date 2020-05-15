@@ -61,12 +61,18 @@ let arrayNombreAleatoire = [];
 
 function melanger() {
 
-   retourAuDepart();
+    for (const carte of cartes) {
+        carte.addEventListener('click', retournerCartes);
+    }
+
+    arrayNombreAleatoire = []
+    retourAuDepart();
 
     for (i=0; i<cartes.length; i++) {  // Je remplis mon arrayNombreAleatoire
         do {
             nombreAleatoire = genererNombreAleatoire(cartes.length);
-        } while (arrayNombreAleatoire.includes(nombreAleatoire))
+        } while (arrayNombreAleatoire.includes(nombreAleatoire)== true)
+
         arrayNombreAleatoire.push(nombreAleatoire);
     }
     console.log(arrayNombreAleatoire);
@@ -75,6 +81,8 @@ function melanger() {
      for (i=0; i<cartes.length; i++) {  // J'associe chaque nombre aleatoire de mon tableau à une couleur
         cartes[i].classList.add(arrayCouleur[arrayNombreAleatoire[i]]);
         cartes[i].setAttribute('data-color', arrayCouleur[arrayNombreAleatoire[i]]);
+
+        console.log(cartes[i].classList);
     }
 
 }
